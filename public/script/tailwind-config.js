@@ -1,14 +1,4 @@
-import forms from '@tailwindcss/forms';
-
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.jsx',
-    ],
-
+tailwind.config = {
     theme: {
         fontFamily: {
             poppins: 'Poppins, sans-serif'
@@ -25,7 +15,5 @@ export default {
                 'laptopXl': '1360px',
             }
         }
-    },
-
-    plugins: [forms],
-};
+    }
+}
