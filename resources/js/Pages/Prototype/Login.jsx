@@ -3,7 +3,7 @@ import moontonWhite from "../../../../public/images/moonton-white.svg";
 import signupImage from "../../../../public/images/signup-image.png";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function Login() {
     return (
@@ -49,7 +49,7 @@ export default function Login() {
                                 </div>
                             </div>
                             <div className="grid space-y-[14px] mt-[30px]">
-                                <Link href={route("prototype.register")}>
+                                <Link href={route("prototype.dashboard")}>
                                     <PrimaryButton variant="primary">
                                         <span className="text-base font-semibold">
                                             Start Watching
