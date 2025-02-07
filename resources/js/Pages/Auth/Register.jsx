@@ -56,6 +56,7 @@ export default function Register() {
                                         value={data.name}
                                         autoComplete="name"
                                         isFocused={true}
+                                        placeholder="Name"
                                         onChange={(e) =>
                                             setData("name", e.target.value)
                                         }
@@ -77,6 +78,7 @@ export default function Register() {
                                         name="email"
                                         value={data.email}
                                         autoComplete="username"
+                                        placeholder="Email"
                                         onChange={(e) =>
                                             setData("email", e.target.value)
                                         }
@@ -101,6 +103,7 @@ export default function Register() {
                                         name="password"
                                         value={data.password}
                                         autoComplete="new-password"
+                                        placeholder="Password"
                                         onChange={(e) =>
                                             setData("password", e.target.value)
                                         }
@@ -125,6 +128,7 @@ export default function Register() {
                                         name="password_confirmation"
                                         value={data.password_confirmation}
                                         autoComplete="new-password"
+                                        placeholder="Confirm Password"
                                         onChange={(e) =>
                                             setData(
                                                 "password_confirmation",
