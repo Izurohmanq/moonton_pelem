@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
+use Inertia\Inertia;
 
 class MovieController extends Controller
 {
@@ -37,7 +38,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return Inertia::render('User/Dashboard/Movie/Show', ['movie' => $movie]);
     }
 
     /**
