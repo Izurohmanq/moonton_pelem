@@ -105,6 +105,7 @@ export default function SubscriptionCard({
                     <div onClick={onSelectSubscription}>
                         <PrimaryButton
                             type="button"
+                            variant='primary'
                         >
                             <span className="text-base font-semibold">
                                 Subscribe Now
