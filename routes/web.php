@@ -3,35 +3,38 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionPlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::redirect('/', '/login');
 
-Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function() {
+Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
-    Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('check.subscription:true');
+    Route::get('subscriptionPlan', [SubscriptionPlanController::class, 'index'])->name('subscriptionplan.index')->middleware('check.subscription:false');
+    Route::post('subscriptionPlan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionplan.userSubscribe')->middleware('check.subscription:false');
 });
 
-Route::prefix('prototype')->name('prototype.')->group(function(){
-    route::get('/login', function(){
+Route::prefix('prototype')->name('prototype.')->group(function () {
+    route::get('/login', function () {
         return Inertia::render('Prototype/Login');
     })->name('login');
 
-    route::get('/register', function(){
+    route::get('/register', function () {
         return Inertia::render('Prototype/Register');
     })->name('register');
 
-    route::get('/dashboard', function(){
+    route::get('/dashboard', function () {
         return Inertia::render('Prototype/Dashboard');
     })->name('dashboard');
 
-    route::get('/subscriptionplan', function(){
+    route::get('/subscriptionplan', function () {
         return Inertia::render('Prototype/SubscriptionPlan');
     })->name('subscriptionPlan');
 
-    route::get('/movie/{slug}', function(){
+    route::get('/movie/{slug}', function () {
         return Inertia::render('Prototype/Movie/Show');
     })->name('movie.show');
 });
@@ -42,4 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
