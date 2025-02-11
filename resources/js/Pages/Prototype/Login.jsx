@@ -57,7 +57,7 @@ export default function Login() {
                                     </PrimaryButton>
                                 </Link>
 
-                                <Link href={route("prototype.register")}>
+                                <Link href={route("register")}>
                                     <PrimaryButton variant="light-outline">
                                         <span className="text-base font-semibold">
                                             Create New Account
