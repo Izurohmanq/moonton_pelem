@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\HandleInertiaRequests::class,
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ]);
+        $middleware->validateCsrfTokens(except: [
+            'midtrans/notification',
+        ]);
         $middleware->alias([
             'check.subscription' => \App\Http\Middleware\CheckUserSubscription::class,
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,

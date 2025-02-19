@@ -1,0 +1,2 @@
+/opt/homebrew/bin/ngrok
+https://dashboard.sandbox.midtrans.com/settings/vtweb_configuration
