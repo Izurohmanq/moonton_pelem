@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::except([
+            'midtrans/notification'
+        ]);
         Vite::prefetch(concurrency: 3);
     }
 }
